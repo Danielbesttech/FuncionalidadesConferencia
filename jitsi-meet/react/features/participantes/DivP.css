@@ -1,0 +1,121 @@
+#sideToolbarContainerP{
+    background-color: #131519;
+    box-sizing: border-box;
+    color: #fff;
+    display: none;
+    flex-direction: column;
+    height: 100%;
+    left:  0px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 315px;
+    z-index: 200;
+  }
+  #part_header {
+    height: 70px;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px;
+    align-items: center;
+    box-sizing: border-box;
+    color: #fff;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+
+  }
+  .jitsi-icon svg {
+    fill: #fff;
+  }
+
+  #sideToolbarPanel{
+    background-color:#0f1011 ;
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    left:  5px;
+    overflow: hidden;
+    position: absolute;
+
+    bottom: 5px;
+    width: 303px;
+    z-index: 10;
+  }
+
+
+.todo-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 80px;
+    font-size: 28;
+    margin: 4px auto;
+    color: #fff;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 118, 20, 1) 0%,
+      rgba(255, 84, 17, 1) 100%
+    );
+
+    padding: 16px;
+    border-radius: 5px;
+    width: 80%;
+  }
+
+  .todo-row:nth-child(6n + 1) {
+    background: linear-gradient(
+      90deg,
+      rgba(93, 12, 255, 1) 0%,
+      rgba(155, 0, 250, 1) 100%
+    );
+  }
+
+  .todo-row:nth-child(6n + 2) {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 12, 241, 1) 0%,
+      rgba(250, 0, 135, 1) 100%
+    );
+  }
+
+  .todo-row:nth-child(6n + 3) {
+    background: linear-gradient(
+      90deg,
+      rgba(20, 159, 255, 1) 0%,
+      rgba(17, 122, 255, 1) 100%
+    );
+  }
+
+  .todo-row:nth-child(6n + 4) {
+    background: linear-gradient(
+      90deg,
+      rgb(12, 255, 65) 0%,
+      rgb(7, 114, 69) 100%
+    );
+  }
+
+  .todo-row:nth-child(6n + 5) {
+    background: linear-gradient(
+      90deg,
+      rgb(202, 255, 12) 0%,
+      rgb(246, 250, 0) 100%
+    );
+  }
+
+  .textTeste{
+    display: flex;
+    left: 105px;
+    margin-top:2220px;
+  }
+
+  .icons {
+    left: 20px;
+    font-size: 24px;
+    cursor: pointer;
+  }

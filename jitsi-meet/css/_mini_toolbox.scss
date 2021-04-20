@@ -1,0 +1,32 @@
+.filmstrip-toolbox,
+.always-on-top-toolbox {
+    background-color: $newToolbarBackgroundColor;
+    border-radius: 3px;
+    display: flex;
+    z-index: $toolbarZ;
+
+    .toolbox-icon {
+        cursor: pointer;
+        padding: 7px;
+
+        &.toggled {
+            background: $AOTToolbarButtonToggleColor;
+        }
+
+        &.disabled {
+            cursor: initial;
+        }
+    }
+}
+
+.always-on-top-toolbox {
+    flex-direction: row;
+    left: 50%;
+    position: absolute;
+    bottom: 10px;
+    transform: translateX(-50%);
+}
+
+.filmstrip-toolbox {
+    flex-direction: column;
+}
