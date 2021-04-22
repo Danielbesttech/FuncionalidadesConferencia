@@ -10,7 +10,23 @@
     position: absolute;
     top: 0;
     width: 315px;
-    z-index: 200;
+    z-index: 2;
+  }
+
+  #sideToolbarContainerPX{
+    background-color: #404349;
+    box-sizing: border-box;
+    color: #fff;
+    display: none;
+    flex-direction: column;
+    min-height: 500px;
+    max-height: 100%;
+    left:  0px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    width: 315px;
+    z-index: 2;
   }
   #part_header {
     height: 70px;
@@ -29,7 +45,8 @@
 
   }
   .jitsi-icon svg {
-    fill: #fff;
+    fill: rgb(231, 218, 218);
+    color: antiquewhite;
   }
 
   #sideToolbarPanel{
@@ -118,4 +135,66 @@
     left: 20px;
     font-size: 24px;
     cursor: pointer;
+  }
+
+  .bt-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 60px;
+    height: 20px;
+    font-size: 26;
+    /* margin: 4px auto; */
+    margin-left: 14px;
+    width: 100%;
+    color: #fff;
+    background: linear-gradient(
+      90deg,
+      rgb(126, 124, 122) 0%,
+      rgb(51, 50, 50) 100%
+    );
+
+    padding: 16px;
+    border-radius: 5px;
+    width: 80%;
+  }
+
+  #sideT{
+    background-color:  #e6eaf3;
+    min-height: 200px;
+    max-height: 100%;
+    box-sizing: border-box;
+    /* color: #fff; */
+    display: none;
+    flex-direction: column;
+    /* height: 200px; */
+    /* left:  0px; */
+    /* overflow: hidden; */
+    position: absolute;
+    /* bottom: 0; */
+    width: 315px;
+    /* z-index: 200; */
+    /* margin-top: 40%; */
+    bottom: 0;
+  }
+  #chat-header {
+    background-color: #3b3e41;
+    height: 30px;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content:start;
+
+    padding: 26px;
+    /* align-items: left; */
+    box-sizing: border-box;
+    /* color: rgb(43, 35, 35); */
+    font-weight: 600;
+    font-size: 24px;
+    /* line-height: 32px; */
+    top: 0;
+  }
+  #barra{
+    width: 140px;
   }

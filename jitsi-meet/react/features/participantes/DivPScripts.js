@@ -1,8 +1,8 @@
-window.onload = function () {
-    const containerP = document.querySelector("#sideToolbarContainerP");
-    const fechar = document.querySelector("#part_header");
+// window.onload = function () {
+//     const containerP = document.querySelector("#sideT");
+//     const fechar = document.querySelector("#xfechar");
 
-    fechar.addEventListener("click", function () {
-        containerP.style.display = "none";
-    });
-};
+//     fechar.addEventListener("click", function () {
+//         containerP.style.display = "none";
+//     });
+// };

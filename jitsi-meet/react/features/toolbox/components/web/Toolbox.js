@@ -442,33 +442,31 @@ class Toolbox extends Component<Props> {
 
 
     _onDivParticipantes() {
-        let total = APP.conference.listMembers()
-        let idPart = [];
-        let nomePart = [];
+        // let total = APP.conference.listMembers()
+        // let idPart = [];
+        // let nomePart = [];
 
-        Object.keys(total).forEach((key) => {
-            idPart = total[key]._id;
-            nomePart= total[key]._displayName
-          });
-            console.log("teste idPart");
-            console.log(idPart);
-            console.log("teste nomePart");
-            console.log(nomePart);
+        // Object.keys(total).forEach((key) => {
+        //     idPart = total[key]._id;
+        //     nomePart= total[key]._displayName
+        //   });
+        //     console.log("teste idPart");
+        //     console.log(idPart);
+        //     console.log("teste nomePart");
+        //     console.log(nomePart);
 
 
 
-        //  setaDiv(APP.conference.listMembers())
+        // //  setaDiv(APP.conference.listMembers())
 
-        const container = document.querySelector("#sideToolbarContainerP");
+        const container = document.querySelector("#sideToolbarContainerPX");
         //console.log("teste onGerar");
         if (container.style.display === "none") {
             container.style.display = "flex";
         } else {
             container.style.display = "none";
         }
-       export function enviar(){
-        return (nomePart)
-        }
+
     }
 
     /**

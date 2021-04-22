@@ -134,7 +134,7 @@ import { AudioMixerEffect } from './react/features/stream-effects/audio-mixer/Au
 import { createPresenterEffect } from './react/features/stream-effects/presenter';
 import { endpointMessageReceived } from './react/features/subtitles';
 import UIEvents from './service/UI/UIEvents';
-import {setLista, getLista} from './react/features/participantes/lista';
+import { setListaNOME, setListaID, setMeuID, setMeuNome } from './react/features/participantes/lista';
 import React, { useState } from 'react';
 
 const logger = Logger.getLogger(__filename);
@@ -143,8 +143,12 @@ const eventEmitter = new EventEmitter();
 
 let room;
 let connection;
-const idPresents = [];
-let meuUser = [];
+let idPresents = [];
+let nomePresents = [];
+let idLeft = [];
+let nomeLeft = [];
+let meuNome = [];
+let meuID = [];
 
 
 
@@ -2016,30 +2020,37 @@ export default {
             }
 
             idPresents.push(user._id);
-            idPresents.push(user._displayName);
-            idPresents.push(this.getMyUserId());
-            idPresents.push(this.getLocalDisplayName());
-
-            setLista(idPresents);
-
-
-
-
-            meuUser = room.getParticipants();
-
-
-
-
-
-
-
+            nomePresents.push(user._displayName);
+            meuID.push(this.getMyUserId());
+            meuNome.push(this.getLocalDisplayName());
+            setMeuNome(meuNome)
+            setMeuID(meuID)
+            console.log("Teste id 1")
+            console.log(idPresents)
+            console.log("Teste nome 1")
+            console.log(nomePresents)
 
             APP.store.dispatch(updateRemoteParticipantFeatures(user));
             logger.log(`USER ${id} connected:`, user);
             APP.UI.addUser(user);
         });
-
+        console.log("teste ANTERIOR left")
         room.on(JitsiConferenceEvents.USER_LEFT, (id, user) => {
+
+            idLeft.push(id)
+            nomeLeft.push(user)
+            console.log("teste for")
+            console.log(idPresents)
+            for(let i=0; i<idPresents.length; i++){
+                idPresents.splice(idPresents.indexOf(idLeft[i]))
+            }
+            console.log("Teste id 2")
+            console.log(idPresents)
+            for(let j=0; j<nomePresents.length; j++){
+                nomePresents.splice(nomePresents.indexOf(nomeLeft[j]))
+            }
+            console.log("Teste nome 2")
+            console.log(nomePresents)
             // The logic shared between RN and web.
             commonUserLeftHandling(APP.store, room, user);
 
@@ -2047,10 +2058,19 @@ export default {
                 return;
             }
 
+
             logger.log(`USER ${id} LEFT:`, user);
 
             APP.UI.onSharedVideoStop(id);
         });
+
+        console.log("depois do for")
+        setListaID(idPresents);
+        console.log("Teste id 3")
+        console.log(idPresents)
+        setListaNOME(nomePresents)
+        console.log("Teste nome 3")
+        console.log(nomePresents)
 
         room.on(JitsiConferenceEvents.USER_STATUS_CHANGED, (id, status) => {
             APP.store.dispatch(participantPresenceChanged(id, status));

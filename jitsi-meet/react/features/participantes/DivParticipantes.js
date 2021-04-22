@@ -1,27 +1,33 @@
 import React, { useState, useEffect } from "react";
 import "./DivP.css";
-import { getLista } from './lista';
+import { getListaNOME, getListaID , getMeuID, getMeuNome, setMeuNome } from './lista';
 import { JitsiConference } from '../../../lib-jitsi-meet/JitsiConference.js';
 import {
-    getLocalParticipant
+    getLocalParticipant , getParticipantDisplayName
 } from '../base/participants';
 import { RiCloseCircleLine } from 'react-icons/ri';
+import { BsPersonSquare } from 'react-icons/bs';
+import { IoIosMicOff } from 'react-icons/io'
+
 import { constructor } from "../../../lib-jitsi-meet/modules/transcription/transcriptionServices/SphinxTranscriptionService";
-import enviar from '../toolbox/components/web/Toolbox';
+import { APP_LINK_SCHEME } from "../base/util";
+import APP from '../app/components/index'
+import '../../../conference';
+import conference from "../../../conference";
+// import enviar from '../toolbox/components/web/Toolbox';
 
 
 
 
 let dado;
-
+let eu = getMeuNome();
 let faro = [];
 let chuchu = [];
 let paraID = [];
 let paraName = [];
 
-faro =  enviar()
-console.log("teste Faro");
-console.log(faro);
+
+
 
 
 export function setaDiv(props){
@@ -45,6 +51,7 @@ function DivParticipantes() {
     const fechar = document.querySelector("#part_header");
     const containerP = document.querySelector("#sideToolbarContainerP");
     const [listados, setListados] = useState([]);
+    const [Meunome, setMeunome] = useState([]);
     let informar;
 
 
@@ -147,7 +154,7 @@ function DivParticipantes() {
 
     const trataLista = list.map((participante, index)=>{
 
-        return <p key={index} className='todo-row' ><RiCloseCircleLine className='icons' onClick={()=> (KickDado(),alert("Participante Excluído"))} /> {participante} </p>
+        return <p key={index} className='todo-row' > <BsPersonSquare/>{participante}<IoIosMicOff/> <RiCloseCircleLine  /></p>
     });
 
 
@@ -155,11 +162,31 @@ function DivParticipantes() {
 
     return (
         <div>
-            <header id="exibir" >
-                <container id="sideToolbarContainerP">
-                    <p id="part_header" className="jitsi-icon " onClick={()=>(fechar.addEventListener("click", function () {
-                                                                                 containerP.style.display = "none";
-                                                                        }))}>
+
+        {/* <container id="sideT" >
+          <header id='chat-header' >
+
+           <p  >Participantes</p>
+           <p id='barra' ></p>
+                      <p className='jitsi-icon ' id='xfechar'></p>
+            <svg height='22' width='22' viewBox='0 0 24 24'>
+              <path d='M18.984 6.422L13.406 12l5.578 5.578-1.406 1.406L12 13.406l-5.578 5.578-1.406-1.406L10.594 12 5.016 6.422l1.406-1.406L12 10.594l5.578-5.578z'></path>
+            </svg>
+          </header>
+          <container id='para'>
+
+            <p  className='bt-row'><BsPersonSquare/>  {eu}</p>
+            <input type="button" value="Exibir" onClick={()=>setListados(getListaNOME)}/>
+            <input type="button" value="Exibir" onClick={()=>setMeunome(getMeuNome)}/>
+
+            </container>
+            {trataLista}
+
+
+        </container> */}
+         <header id="exibir" >
+                <container id="sideToolbarContainerPX">
+                    <p id="part_header" className="jitsi-icon " >
                         <svg height="22" width="22" viewBox="0 0 24 24">
                             <path d="M18.984 6.422L13.406 12l5.578 5.578-1.406 1.406L12 13.406l-5.578 5.578-1.406-1.406L10.594 12 5.016 6.422l1.406-1.406L12 10.594l5.578-5.578z" />
                         </svg>
@@ -170,50 +197,21 @@ function DivParticipantes() {
                     <input
                         type='button'
                         value= 'getLista'
-                        onClick={()=> setListados(getLista)}
+                        onClick={()=> setListados(getListaNOME)}
                     />
 
                     <input
                         type='button'
                         value= 'KickDado'
-                        onClick={()=> KickDado()
+                        onClick={()=> setMeunome(getMeuNome)
 
                         }
                     />
-                    <input
-                        type='button'
-                        value= 'valuesDado'
-                        onClick={()=> console.log(Object.values(dado))
-
-                        }
-                    />
-                    <input
-                        type='button'
-                        value= 'informaDado'
-                        onClick={()=> (setInform(dado[0]._displayName))
-
-                        }
-                    />
-
-                    <input
-                        type='button'
-                        value= 'Exibir DADO'
-                        onClick={()=> dadosListados()
-
-                        }
-                    />
-
-                    <p>Tratalista {trataLista}</p>
-                    <br />
-
-                    <br />
-
-
-
-                    </container>
-                    </container>
+                    {Meunome}
+                    {trataLista}
+                </container>
+                </container>
             </header>
-            {enviar()}
         </div>
     );
 }
